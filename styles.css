@@ -14,6 +14,7 @@ body,html{
     font-size: 18px;
 }
 
+
 body{
     background-color: var(--Cream);
     margin: 0;
@@ -27,7 +28,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 40%;
+    width: 30%;
 }
 
 
@@ -76,7 +77,7 @@ body{
 }
 
 .total{
-    margin-top: 3%;
+    margin-top:10%;
     color: var(--Medium-brown);
     display: flex;
     flex-direction: row;
@@ -97,3 +98,70 @@ body{
 .percent b{
     color: black;
 }
+.graphs {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    gap: 10px;
+  }
+.graphs .bar {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 5px;
+    background-color: var(--Soft-red);
+    position: relative;
+    transition: 500ms ease;
+    cursor: pointer;
+  }
+
+.graphs .bar .day {
+    position: absolute;
+    bottom: -25px;
+    left: 6px;
+}
+
+  .graphs .bar:hover {
+    background-color: hsl(10deg, 79%, 75%);
+  }
+
+.graphs .bar:nth-child(2) {
+    height: 5rem;
+  }
+.graphs .bar:nth-child(3) {
+    background-color: var(--Cyan);
+    height: 7rem;
+  }
+.graphs .bar:nth-child(3):hover {
+    background-color: hsl(186deg, 34%, 75%);
+  }
+.graphs .bar:nth-child(4) {
+    height: 4rem;
+  }
+.graphs .bar:nth-child(5) {
+    height: 3rem;
+  }
+.graphs .bar:nth-child(6) {
+    height: 5.5rem;
+  }
+.graphs .bar:nth-child(7) {
+    height: 3.5rem;
+  }
+.graphs .bar::before {
+    display: none;
+    content: attr(data-tooltip);
+    width: 33px;
+    height: 18px;
+    background-color: var(--Dark-brown);
+    color: #fff;
+    position: absolute;
+    top: -25px;
+    left: -2px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+.graphs .bar:hover::before {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

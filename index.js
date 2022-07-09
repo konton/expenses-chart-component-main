@@ -1,6 +1,3 @@
-<script
-src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
-</script>
 
 
 async function getapi(data){
@@ -8,14 +5,16 @@ async function getapi(data){
 
     var data = await response.json();
     console.log(data);
-    bar(data);
+    data.forEach((data) =>{
+        output = `
+        <div class="bar ${data.day}" data-tooltip="$${data.amount}">
+            <span class="day">${data.day}</span>
+        </div>
+        `;
+      document.querySelector(".graphs").innerHTML += output;
+    })
 }
 
 getapi("data.json")
-
-
-function bar() {
-    document.querySelector('.day').style.display = 'none';
-}
 
 
